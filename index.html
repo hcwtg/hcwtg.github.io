@@ -1,341 +1,303 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
-  <title>欢迎来到火车王社区！</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>欢迎来到火车王社区！</title>
 
-  <style>
-      html, body {
-          background: #28254C;
-          font-family: 'Ubuntu';
-      }
+<style>
+html, body {
+  background: #28254C;
+  font-family: 'Ubuntu';
+}
 
-      * {
-          box-sizing: border-box;
-      }
+* {
+  box-sizing: border-box;
+}
 
-      .box {
-          width: 350px;
-          height: 100%;
-          max-height: 600px;
-          min-height: 450px;
-          background: #332F63;
-          border-radius: 20px;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          padding: 30px 50px;
-      }
+.box {
+  width: 350px;
+  height: 100%;
+  max-height: 600px;
+  min-height: 450px;
+  background: #332F63;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 50px;
+}
+.box .box__ghost {
+  padding: 15px 25px 25px;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -30%);
+}
+.box .box__ghost .symbol:nth-child(1) {
+  opacity: .2;
+  animation: shine 4s ease-in-out 3s infinite;
+}
+.box .box__ghost .symbol:nth-child(1):before, .box .box__ghost .symbol:nth-child(1):after {
+  content: '';
+  width: 12px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  border-radius: 5px;
+  bottom: 65px;
+  left: 0;
+}
+.box .box__ghost .symbol:nth-child(1):before {
+  transform: rotate(45deg);
+}
+.box .box__ghost .symbol:nth-child(1):after {
+  transform: rotate(-45deg);
+}
+.box .box__ghost .symbol:nth-child(2) {
+  position: absolute;
+  left: -5px;
+  top: 30px;
+  height: 18px;
+  width: 18px;
+  border: 4px solid;
+  border-radius: 50%;
+  border-color: #fff;
+  opacity: .2;
+  animation: shine 4s ease-in-out 1.3s infinite;
+}
+.box .box__ghost .symbol:nth-child(3) {
+  opacity: .2;
+  animation: shine 3s ease-in-out .5s infinite;
+}
+.box .box__ghost .symbol:nth-child(3):before, .box .box__ghost .symbol:nth-child(3):after {
+  content: '';
+  width: 12px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  border-radius: 5px;
+  top: 5px;
+  left: 40px;
+}
+.box .box__ghost .symbol:nth-child(3):before {
+  transform: rotate(90deg);
+}
+.box .box__ghost .symbol:nth-child(3):after {
+  transform: rotate(180deg);
+}
+.box .box__ghost .symbol:nth-child(4) {
+  opacity: .2;
+  animation: shine 6s ease-in-out 1.6s infinite;
+}
+.box .box__ghost .symbol:nth-child(4):before, .box .box__ghost .symbol:nth-child(4):after {
+  content: '';
+  width: 15px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  border-radius: 5px;
+  top: 10px;
+  right: 30px;
+}
+.box .box__ghost .symbol:nth-child(4):before {
+  transform: rotate(45deg);
+}
+.box .box__ghost .symbol:nth-child(4):after {
+  transform: rotate(-45deg);
+}
+.box .box__ghost .symbol:nth-child(5) {
+  position: absolute;
+  right: 5px;
+  top: 40px;
+  height: 12px;
+  width: 12px;
+  border: 3px solid;
+  border-radius: 50%;
+  border-color: #fff;
+  opacity: .2;
+  animation: shine 1.7s ease-in-out 7s infinite;
+}
+.box .box__ghost .symbol:nth-child(6) {
+  opacity: .2;
+  animation: shine 2s ease-in-out 6s infinite;
+}
+.box .box__ghost .symbol:nth-child(6):before, .box .box__ghost .symbol:nth-child(6):after {
+  content: '';
+  width: 15px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  border-radius: 5px;
+  bottom: 65px;
+  right: -5px;
+}
+.box .box__ghost .symbol:nth-child(6):before {
+  transform: rotate(90deg);
+}
+.box .box__ghost .symbol:nth-child(6):after {
+  transform: rotate(180deg);
+}
+.box .box__ghost .box__ghost-container {
+  background: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px 100px 0 0;
+  position: relative;
+  margin: 0 auto;
+  animation: upndown 3s ease-in-out infinite;
+}
+.box .box__ghost .box__ghost-container .box__ghost-eyes {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  height: 12px;
+  width: 70px;
+}
+.box .box__ghost .box__ghost-container .box__ghost-eyes .box__eye-left {
+  width: 12px;
+  height: 12px;
+  background: #332F63;
+  border-radius: 50%;
+  margin: 0 10px;
+  position: absolute;
+  left: 0;
+}
+.box .box__ghost .box__ghost-container .box__ghost-eyes .box__eye-right {
+  width: 12px;
+  height: 12px;
+  background: #332F63;
+  border-radius: 50%;
+  margin: 0 10px;
+  position: absolute;
+  right: 0;
+}
+.box .box__ghost .box__ghost-container .box__ghost-bottom {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.box .box__ghost .box__ghost-container .box__ghost-bottom div {
+  flex-grow: 1;
+  position: relative;
+  top: -10px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+.box .box__ghost .box__ghost-container .box__ghost-bottom div:nth-child(2n) {
+  top: -12px;
+  margin: 0 -0px;
+  border-top: 15px solid #332F63;
+  background: transparent;
+}
+.box .box__ghost .box__ghost-shadow {
+  height: 20px;
+  box-shadow: 0 50px 15px 5px #3B3769;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: smallnbig 3s ease-in-out infinite;
+}
+.box .box__description {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.box .box__description .box__description-container {
+  color: #fff;
+  text-align: center;
+  width: 200px;
+  font-size: 16px;
+  margin: 0 auto;
+}
+.box .box__description .box__description-container .box__description-title {
+  font-size: 24px;
+  letter-spacing: .5px;
+}
+.box .box__description .box__description-container .box__description-text {
+  color: #8C8AA7;
+  line-height: 20px;
+  margin-top: 20px;
+}
+.box .box__description .box__button {
+  display: block;
+  position: relative;
+  background: #FF5E65;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  line-height: 50px;
+  font-size: 18px;
+  padding: 0 70px;
+  white-space: nowrap;
+  margin-top: 25px;
+  transition: background .5s ease;
+  overflow: hidden;
+}
+.box .box__description .box__button:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  background: #fff;
+  bottom: -25px;
+  left: 0;
+  border: 2px solid #fff;
+  transform: translateX(-50px) rotate(45deg);
+  transition: transform .5s ease;
+}
+.box .box__description .box__button:hover {
+  background: transparent;
+  border-color: #fff;
+}
+.box .box__description .box__button:hover:before {
+  transform: translateX(250px) rotate(45deg);
+}
 
-      .box .box__ghost {
-          padding: 15px 25px 25px;
-          position: absolute;
-          left: 50%;
-          top: 30%;
-          transform: translate(-50%, -30%);
-      }
-
-      .box .box__ghost .symbol:nth-child(1) {
-          opacity: .2;
-          animation: shine 4s ease-in-out 3s infinite;
-      }
-
-      .box .box__ghost .symbol:nth-child(1):before, .box .box__ghost .symbol:nth-child(1):after {
-          content: '';
-          width: 12px;
-          height: 4px;
-          background: #fff;
-          position: absolute;
-          border-radius: 5px;
-          bottom: 65px;
-          left: 0;
-      }
-
-      .box .box__ghost .symbol:nth-child(1):before {
-          transform: rotate(45deg);
-      }
-
-      .box .box__ghost .symbol:nth-child(1):after {
-          transform: rotate(-45deg);
-      }
-
-      .box .box__ghost .symbol:nth-child(2) {
-          position: absolute;
-          left: -5px;
-          top: 30px;
-          height: 18px;
-          width: 18px;
-          border: 4px solid;
-          border-radius: 50%;
-          border-color: #fff;
-          opacity: .2;
-          animation: shine 4s ease-in-out 1.3s infinite;
-      }
-
-      .box .box__ghost .symbol:nth-child(3) {
-          opacity: .2;
-          animation: shine 3s ease-in-out .5s infinite;
-      }
-
-      .box .box__ghost .symbol:nth-child(3):before, .box .box__ghost .symbol:nth-child(3):after {
-          content: '';
-          width: 12px;
-          height: 4px;
-          background: #fff;
-          position: absolute;
-          border-radius: 5px;
-          top: 5px;
-          left: 40px;
-      }
-
-      .box .box__ghost .symbol:nth-child(3):before {
-          transform: rotate(90deg);
-      }
-
-      .box .box__ghost .symbol:nth-child(3):after {
-          transform: rotate(180deg);
-      }
-
-      .box .box__ghost .symbol:nth-child(4) {
-          opacity: .2;
-          animation: shine 6s ease-in-out 1.6s infinite;
-      }
-
-      .box .box__ghost .symbol:nth-child(4):before, .box .box__ghost .symbol:nth-child(4):after {
-          content: '';
-          width: 15px;
-          height: 4px;
-          background: #fff;
-          position: absolute;
-          border-radius: 5px;
-          top: 10px;
-          right: 30px;
-      }
-
-      .box .box__ghost .symbol:nth-child(4):before {
-          transform: rotate(45deg);
-      }
-
-      .box .box__ghost .symbol:nth-child(4):after {
-          transform: rotate(-45deg);
-      }
-
-      .box .box__ghost .symbol:nth-child(5) {
-          position: absolute;
-          right: 5px;
-          top: 40px;
-          height: 12px;
-          width: 12px;
-          border: 3px solid;
-          border-radius: 50%;
-          border-color: #fff;
-          opacity: .2;
-          animation: shine 1.7s ease-in-out 7s infinite;
-      }
-
-      .box .box__ghost .symbol:nth-child(6) {
-          opacity: .2;
-          animation: shine 2s ease-in-out 6s infinite;
-      }
-
-      .box .box__ghost .symbol:nth-child(6):before, .box .box__ghost .symbol:nth-child(6):after {
-          content: '';
-          width: 15px;
-          height: 4px;
-          background: #fff;
-          position: absolute;
-          border-radius: 5px;
-          bottom: 65px;
-          right: -5px;
-      }
-
-      .box .box__ghost .symbol:nth-child(6):before {
-          transform: rotate(90deg);
-      }
-
-      .box .box__ghost .symbol:nth-child(6):after {
-          transform: rotate(180deg);
-      }
-
-      .box .box__ghost .box__ghost-container {
-          background: #fff;
-          width: 100px;
-          height: 100px;
-          border-radius: 100px 100px 0 0;
-          position: relative;
-          margin: 0 auto;
-          animation: upndown 3s ease-in-out infinite;
-      }
-
-      .box .box__ghost .box__ghost-container .box__ghost-eyes {
-          position: absolute;
-          left: 50%;
-          top: 45%;
-          height: 12px;
-          width: 70px;
-      }
-
-      .box .box__ghost .box__ghost-container .box__ghost-eyes .box__eye-left {
-          width: 12px;
-          height: 12px;
-          background: #332F63;
-          border-radius: 50%;
-          margin: 0 10px;
-          position: absolute;
-          left: 0;
-      }
-
-      .box .box__ghost .box__ghost-container .box__ghost-eyes .box__eye-right {
-          width: 12px;
-          height: 12px;
-          background: #332F63;
-          border-radius: 50%;
-          margin: 0 10px;
-          position: absolute;
-          right: 0;
-      }
-
-      .box .box__ghost .box__ghost-container .box__ghost-bottom {
-          display: flex;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-      }
-
-      .box .box__ghost .box__ghost-container .box__ghost-bottom div {
-          flex-grow: 1;
-          position: relative;
-          top: -10px;
-          height: 20px;
-          border-radius: 100%;
-          background-color: #fff;
-      }
-
-      .box .box__ghost .box__ghost-container .box__ghost-bottom div:nth-child(2n) {
-          top: -12px;
-          margin: 0 -0px;
-          border-top: 15px solid #332F63;
-          background: transparent;
-      }
-
-      .box .box__ghost .box__ghost-shadow {
-          height: 20px;
-          box-shadow: 0 50px 15px 5px #3B3769;
-          border-radius: 50%;
-          margin: 0 auto;
-          animation: smallnbig 3s ease-in-out infinite;
-      }
-
-      .box .box__description {
-          position: absolute;
-          bottom: 30px;
-          left: 50%;
-          transform: translateX(-50%);
-      }
-
-      .box .box__description .box__description-container {
-          color: #fff;
-          text-align: center;
-          width: 200px;
-          font-size: 16px;
-          margin: 0 auto;
-      }
-
-      .box .box__description .box__description-container .box__description-title {
-          font-size: 24px;
-          letter-spacing: .5px;
-      }
-
-      .box .box__description .box__description-container .box__description-text {
-          color: #8C8AA7;
-          line-height: 20px;
-          margin-top: 20px;
-      }
-
-      .box .box__description .box__button {
-          display: block;
-          position: relative;
-          background: #FF5E65;
-          border: 1px solid transparent;
-          border-radius: 50px;
-          height: 50px;
-          text-align: center;
-          text-decoration: none;
-          color: #fff;
-          line-height: 50px;
-          font-size: 18px;
-          padding: 0 70px;
-          white-space: nowrap;
-          margin-top: 25px;
-          transition: background .5s ease;
-          overflow: hidden;
-      }
-
-      .box .box__description .box__button:before {
-          content: '';
-          position: absolute;
-          width: 20px;
-          height: 100px;
-          background: #fff;
-          bottom: -25px;
-          left: 0;
-          border: 2px solid #fff;
-          transform: translateX(-50px) rotate(45deg);
-          transition: transform .5s ease;
-      }
-
-      .box .box__description .box__button:hover {
-          background: transparent;
-          border-color: #fff;
-      }
-
-      .box .box__description .box__button:hover:before {
-          transform: translateX(250px) rotate(45deg);
-      }
-
-      @keyframes upndown {
-          0% {
-              transform: translateY(5px);
-          }
-          50% {
-              transform: translateY(15px);
-          }
-          100% {
-              transform: translateY(5px);
-          }
-      }
-
-      @keyframes smallnbig {
-          0% {
-              width: 90px;
-          }
-          50% {
-              width: 100px;
-          }
-          100% {
-              width: 90px;
-          }
-      }
-
-      @keyframes shine {
-          0% {
-              opacity: .2;
-          }
-          25% {
-              opacity: .1;
-          }
-          50% {
-              opacity: .2;
-          }
-          100% {
-              opacity: .2;
-          }
-      }
-  </style>
+@keyframes upndown {
+  0% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+@keyframes smallnbig {
+  0% {
+    width: 90px;
+  }
+  50% {
+    width: 100px;
+  }
+  100% {
+    width: 90px;
+  }
+}
+@keyframes shine {
+  0% {
+    opacity: .2;
+  }
+  25% {
+    opacity: .1;
+  }
+  50% {
+    opacity: .2;
+  }
+  100% {
+    opacity: .2;
+  }
+}
+</style>
 </head>
 <body>
 <div class="box">
@@ -346,7 +308,7 @@
     <div class="symbol"></div>
     <div class="symbol"></div>
     <div class="symbol"></div>
-
+    
     <div class="box__ghost-container">
       <div class="box__ghost-eyes">
         <div class="box__eye-left"></div>
@@ -362,23 +324,45 @@
     </div>
     <div class="box__ghost-shadow"></div>
   </div>
-
+  
   <div class="box__description">
     <div class="box__description-container">
       <div class="box__description-title">谢谢关注！动动小手收藏一下吧！</div>
       <div class="box__description-text">（hcwacg.com）请收藏网址哦！</div>
     </div>
+    
+    <a href="https://cloud.ananas.chaoxing.com/view/fileviewDownload?objectId=a2329907e7a1eaca51c74a3605630be8" class="box__button">下载火车王社区手机APP</a>
 
-    <div onclick="downloadApp()" class="box__button">下载火车王社区手机APP</div>
-    <div onclick="downloadExe()" class="box__button">下载火车王电脑版</div>
-
+    
   </div>
-
+  
 </div>
-<script src="https://cdn.staticfile.org/axios/1.4.0/axios.min.js"></script>
+
 <script>
-  function _0x4108(_0x3c4b14,_0x6782b1){var _0x2004ae=_0x52c8();return _0x4108=function(_0x7ce6c4,_0x4a1d0c){_0x7ce6c4=_0x7ce6c4-0x13d;var _0x4697cf=_0x2004ae[_0x7ce6c4];if(_0x4108['\x6a\x55\x47\x72\x5a\x70']===undefined){var _0x22a971=function(_0x1ce894){var _0x52c880='\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x2b\x2f\x3d';var _0x598957='',_0x3f140f='',_0x1cc082=_0x598957+_0x22a971;for(var _0x124137=0x0,_0x5f00d6,_0x1b6651,_0x5a195d=0x0;_0x1b6651=_0x1ce894['\x63\x68\x61\x72\x41\x74'](_0x5a195d++);~_0x1b6651&&(_0x5f00d6=_0x124137%0x4?_0x5f00d6*0x40+_0x1b6651:_0x1b6651,_0x124137++%0x4)?_0x598957+=_0x1cc082['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](_0x5a195d+0xa)-0xa!==0x0?String['\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65'](0xff&_0x5f00d6>>(-0x2*_0x124137&0x6)):_0x124137:0x0){_0x1b6651=_0x52c880['\x69\x6e\x64\x65\x78\x4f\x66'](_0x1b6651);}for(var _0x41081b=0x0,_0x1b0998=_0x598957['\x6c\x65\x6e\x67\x74\x68'];_0x41081b<_0x1b0998;_0x41081b++){_0x3f140f+='\x25'+('\x30\x30'+_0x598957['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](_0x41081b)['\x74\x6f\x53\x74\x72\x69\x6e\x67'](0x10))['\x73\x6c\x69\x63\x65'](-0x2);}return decodeURIComponent(_0x3f140f);};var _0xdd27ec=function(_0x138a80,_0x370ff9){var _0x50f3b2=[],_0x4e8340=0x0,_0x3e4c85,_0x3e0180='';_0x138a80=_0x22a971(_0x138a80);var _0x25c22d;for(_0x25c22d=0x0;_0x25c22d<0x100;_0x25c22d++){_0x50f3b2[_0x25c22d]=_0x25c22d;}for(_0x25c22d=0x0;_0x25c22d<0x100;_0x25c22d++){_0x4e8340=(_0x4e8340+_0x50f3b2[_0x25c22d]+_0x370ff9['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](_0x25c22d%_0x370ff9['\x6c\x65\x6e\x67\x74\x68']))%0x100,_0x3e4c85=_0x50f3b2[_0x25c22d],_0x50f3b2[_0x25c22d]=_0x50f3b2[_0x4e8340],_0x50f3b2[_0x4e8340]=_0x3e4c85;}_0x25c22d=0x0,_0x4e8340=0x0;for(var _0x113501=0x0;_0x113501<_0x138a80['\x6c\x65\x6e\x67\x74\x68'];_0x113501++){_0x25c22d=(_0x25c22d+0x1)%0x100,_0x4e8340=(_0x4e8340+_0x50f3b2[_0x25c22d])%0x100,_0x3e4c85=_0x50f3b2[_0x25c22d],_0x50f3b2[_0x25c22d]=_0x50f3b2[_0x4e8340],_0x50f3b2[_0x4e8340]=_0x3e4c85,_0x3e0180+=String['\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65'](_0x138a80['\x63\x68\x61\x72\x43\x6f\x64\x65\x41\x74'](_0x113501)^_0x50f3b2[(_0x50f3b2[_0x25c22d]+_0x50f3b2[_0x4e8340])%0x100]);}return _0x3e0180;};_0x4108['\x61\x4c\x4b\x4a\x4b\x50']=_0xdd27ec,_0x3c4b14=arguments,_0x4108['\x6a\x55\x47\x72\x5a\x70']=!![];}var _0x1912de=_0x2004ae[0x0],_0x38c869=_0x7ce6c4+_0x1912de,_0x560fb4=_0x3c4b14[_0x38c869];if(!_0x560fb4){if(_0x4108['\x48\x6b\x54\x6d\x6f\x72']===undefined){var _0x4228f2=function(_0x3daa73){this['\x63\x65\x63\x56\x4a\x6f']=_0x3daa73,this['\x78\x65\x52\x78\x69\x76']=[0x1,0x0,0x0],this['\x65\x6d\x4c\x55\x4e\x6b']=function(){return'\x6e\x65\x77\x53\x74\x61\x74\x65';},this['\x66\x44\x71\x48\x73\x71']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['\x52\x64\x78\x75\x72\x7a']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x4228f2['\x70\x72\x6f\x74\x6f\x74\x79\x70\x65']['\x56\x77\x42\x52\x76\x56']=function(){var _0x267dd0=new RegExp(this['\x66\x44\x71\x48\x73\x71']+this['\x52\x64\x78\x75\x72\x7a']),_0x5c47a8=_0x267dd0['\x74\x65\x73\x74'](this['\x65\x6d\x4c\x55\x4e\x6b']['\x74\x6f\x53\x74\x72\x69\x6e\x67']())?--this['\x78\x65\x52\x78\x69\x76'][0x1]:--this['\x78\x65\x52\x78\x69\x76'][0x0];return this['\x4e\x66\x41\x72\x45\x79'](_0x5c47a8);},_0x4228f2['\x70\x72\x6f\x74\x6f\x74\x79\x70\x65']['\x4e\x66\x41\x72\x45\x79']=function(_0x43a3db){if(!Boolean(~_0x43a3db))return _0x43a3db;return this['\x44\x43\x50\x6f\x79\x4d'](this['\x63\x65\x63\x56\x4a\x6f']);},_0x4228f2['\x70\x72\x6f\x74\x6f\x74\x79\x70\x65']['\x44\x43\x50\x6f\x79\x4d']=function(_0x3556ef){for(var _0x5b52e8=0x0,_0x26cb58=this['\x78\x65\x52\x78\x69\x76']['\x6c\x65\x6e\x67\x74\x68'];_0x5b52e8<_0x26cb58;_0x5b52e8++){this['\x78\x65\x52\x78\x69\x76']['\x70\x75\x73\x68'](Math['\x72\x6f\x75\x6e\x64'](Math['\x72\x61\x6e\x64\x6f\x6d']())),_0x26cb58=this['\x78\x65\x52\x78\x69\x76']['\x6c\x65\x6e\x67\x74\x68'];}return _0x3556ef(this['\x78\x65\x52\x78\x69\x76'][0x0]);},new _0x4228f2(_0x4108)['\x56\x77\x42\x52\x76\x56'](),_0x4108['\x48\x6b\x54\x6d\x6f\x72']=!![];}_0x4697cf=_0x4108['\x61\x4c\x4b\x4a\x4b\x50'](_0x4697cf,_0x4a1d0c),_0x3c4b14[_0x38c869]=_0x4697cf;}else _0x4697cf=_0x560fb4;return _0x4697cf;},_0x4108(_0x3c4b14,_0x6782b1);}(function(_0x4ecaf8,_0x5dad1a){var _0x495486=_0x5989,_0x27fa18=_0x4108,_0x1e1eac=_0x4ecaf8();while(!![]){try{var _0x542341=parseInt(_0x27fa18(0x14c,'\x56\x33\x4e\x57'))/0x1+parseInt(_0x495486(0x17d))/0x2*(parseInt(_0x495486(0x1a2))/0x3)+-parseInt(_0x27fa18(0x148,'\x5e\x25\x4c\x30'))/0x4*(-parseInt(_0x495486(0x15b))/0x5)+-parseInt(_0x27fa18(0x195,'\x74\x59\x31\x7a'))/0x6+parseInt(_0x27fa18(0x182,'\x6e\x4b\x30\x72'))/0x7*(parseInt(_0x495486(0x19f))/0x8)+parseInt(_0x27fa18(0x173,'\x28\x75\x40\x59'))/0x9*(parseInt(_0x495486(0x144))/0xa)+-parseInt(_0x27fa18(0x193,'\x31\x7a\x66\x33'))/0xb;if(_0x542341===_0x5dad1a)break;else _0x1e1eac['push'](_0x1e1eac['shift']());}catch(_0x38bea1){_0x1e1eac['push'](_0x1e1eac['shift']());}}}(_0x52c8,0x87b4a));function _0x52c8(){var _0x3a24c7=['\x69\x6f\x6e\x20\x2a','\x57\x51\x33\x64\x4d\x75\x4c\x2f\x57\x36\x71','\x46\x49\x72\x71','\x2f\x69\x6e\x76\x69','\x74\x61\x62\x6c\x65','\x6e\x76\x69\x74\x61','\x5c\x2b\x5c\x2b\x20','\x57\x50\x35\x37\x70\x53\x6f\x70\x57\x36\x61','\x68\x72\x65\x66','\x69\x6e\x67','\x57\x34\x54\x6f\x74\x66\x72\x36','\x6e\x63\x74\x69\x6f','\x57\x36\x68\x63\x4a\x77\x2f\x64\x47\x30\x6d','\x57\x51\x33\x64\x56\x53\x6b\x59\x46\x76\x5a\x64\x4b\x30\x54\x51\x63\x65\x37\x63\x48\x67\x58\x4e\x57\x52\x69','\x57\x37\x46\x63\x4b\x43\x6f\x6f\x43\x47','\x57\x51\x69\x77\x78\x47\x42\x63\x55\x43\x6f\x42\x57\x36\x38\x2b\x57\x34\x52\x63\x55\x38\x6f\x64\x57\x35\x4a\x64\x49\x47','\x79\x63\x6e\x78\x44\x38\x6f\x71','\x6c\x65\x6e\x67\x74','\x5f\x5f\x70\x72\x6f','\x57\x37\x6a\x6d\x64\x76\x42\x64\x50\x61','\x64\x76\x5a\x64\x4a\x47\x54\x57','\x42\x6d\x6b\x67\x57\x50\x37\x63\x48\x53\x6b\x36','\x61\x74\x65\x5f\x69','\x57\x35\x64\x63\x4d\x48\x42\x63\x54\x76\x65','\x69\x33\x30\x6f\x6b\x6d\x6b\x68\x57\x37\x44\x30\x57\x4f\x4a\x64\x49\x62\x66\x7a\x69\x57','\x31\x31\x38\x34\x43\x62\x62\x7a\x41\x63','\x72\x75\x63\x74\x6f','\x57\x35\x5a\x63\x47\x4e\x6c\x63\x4b\x30\x5a\x63\x4f\x67\x52\x64\x55\x43\x6f\x6a\x57\x50\x48\x5a\x57\x50\x43\x38','\x36\x78\x51\x73\x4b\x61\x59','\x57\x51\x31\x76\x57\x37\x37\x63\x55\x57','\x65\x72\x72\x6f\x72','\x57\x4f\x4e\x63\x4a\x48\x74\x64\x51\x43\x6b\x54','\x73\x74\x72\x69\x6e','\x6a\x59\x6a\x77\x6f\x43\x6f\x78','\x71\x71\x64\x64\x56\x66\x38\x45','\x57\x51\x33\x63\x4b\x53\x6f\x4f\x57\x50\x64\x63\x4f\x71','\x69\x73\x22\x29\x28','\x72\x65\x74\x75\x72','\x6c\x66\x6e\x53\x72\x43\x6b\x77','\x31\x30\x57\x50\x4e\x45\x56\x50','\x57\x52\x52\x63\x4a\x48\x4a\x64\x56\x71','\x73\x65\x61\x72\x63','\x2a\x28\x3f\x3a\x5b','\x77\x38\x6f\x34\x65\x53\x6b\x59\x57\x51\x57\x4a\x57\x4f\x76\x50\x45\x43\x6f\x6c','\x6c\x6f\x63\x61\x74','\x57\x37\x74\x63\x49\x53\x6f\x70\x73\x77\x61','\x45\x57\x61\x65\x57\x35\x53','\x57\x51\x70\x64\x49\x6d\x6b\x71\x63\x68\x50\x39\x69\x43\x6b\x53\x42\x53\x6b\x64\x57\x37\x33\x63\x49\x57','\x46\x65\x44\x64','\x57\x4f\x4e\x64\x4b\x47\x70\x64\x51\x43\x6b\x39','\x73\x6d\x6f\x48\x44\x5a\x47','\x6c\x43\x6f\x61\x57\x36\x4f\x55\x57\x51\x57\x6b\x57\x50\x54\x79\x69\x43\x6b\x77\x57\x51\x78\x64\x4e\x75\x37\x64\x50\x71','\x74\x72\x61\x63\x65','\x79\x75\x31\x45\x57\x4f\x38','\x74\x69\x6f\x6e','\x74\x67\x2e\x78\x79','\x61\x63\x74\x69\x6f','\x22\x72\x65\x74\x75','\x74\x6f\x53\x74\x72','\x73\x53\x6f\x78\x57\x34\x64\x64\x4a\x43\x6b\x51','\x63\x53\x6b\x4c\x74\x6d\x6f\x58\x57\x4f\x53','\x63\x6f\x6e\x73\x74','\x38\x37\x32\x35\x6a\x51\x67\x56\x46\x51','\x32\x34\x39\x39\x37\x69\x64\x77\x6c\x5a\x6d','\x66\x75\x6e\x63\x74','\x57\x51\x78\x64\x4c\x43\x6b\x7a\x44\x38\x6b\x74','\x57\x34\x68\x64\x4b\x59\x2f\x64\x48\x31\x61','\x20\x28\x74\x72\x75','\x74\x31\x5a\x64\x48\x58\x48\x53','\x57\x34\x46\x63\x4d\x67\x4a\x63\x48\x66\x71','\x57\x34\x6c\x64\x52\x4c\x6c\x63\x56\x33\x57','\x72\x6e\x20\x74\x68','\x6c\x6f\x67','\x63\x6f\x75\x6e\x74','\x75\x58\x78\x64\x52\x75\x65\x65','\x6b\x4e\x46\x63\x4d\x57','\x57\x50\x70\x64\x48\x61\x74\x64\x52\x57','\x43\x49\x4e\x64\x4a\x43\x6b\x6c\x57\x36\x6d\x6e\x41\x78\x57\x31\x57\x51\x75','\x57\x36\x42\x63\x49\x6d\x6f\x6d\x46\x38\x6f\x6b','\x73\x70\x6c\x69\x74','\x42\x65\x78\x64\x4b\x63\x4e\x63\x4e\x71','\x57\x36\x42\x63\x4b\x4b\x30\x6d','\x57\x50\x50\x57\x69\x43\x6f\x45','\x57\x37\x48\x6b\x68\x65\x52\x64\x56\x47','\x46\x76\x50\x69\x57\x50\x30','\x57\x50\x78\x64\x4b\x38\x6b\x69\x57\x4f\x71\x70','\x69\x6d\x6b\x6a\x42\x49\x68\x64\x55\x6d\x6b\x39\x57\x50\x53\x38\x57\x4f\x2f\x63\x48\x53\x6f\x73\x75\x76\x69','\x61\x70\x70\x6c\x79','\x7a\x41\x2d\x5a\x5f','\x70\x6f\x73\x74','\x57\x52\x64\x64\x48\x72\x39\x6a\x46\x62\x34\x70\x46\x4a\x47\x7a','\x72\x69\x6e\x67','\x57\x36\x42\x63\x54\x43\x6f\x30\x6c\x47\x79','\x29\x2b\x29\x2b\x29','\x75\x38\x6f\x6f\x57\x50\x4e\x63\x55\x53\x6f\x43','\x57\x4f\x44\x34\x57\x36\x56\x64\x55\x38\x6f\x72','\x31\x32\x31\x37\x37\x38\x63\x5a\x48\x6f\x6f\x69','\x57\x52\x4e\x63\x4e\x43\x6f\x70\x76\x4d\x43','\x62\x69\x6e\x64','\x57\x36\x6c\x63\x4d\x43\x6f\x73\x45\x61','\x79\x53\x6f\x73\x57\x34\x2f\x64\x4d\x47','\x71\x6d\x6b\x47\x57\x51\x78\x64\x54\x5a\x52\x64\x52\x43\x6f\x64\x62\x53\x6b\x46\x7a\x73\x6d','\x74\x61\x74\x69\x6f','\x68\x74\x74\x70\x73','\x61\x6d\x6f\x48\x57\x37\x2f\x63\x55\x4d\x69'];_0x52c8=function(){return _0x3a24c7;};return _0x52c8();}var _0x1ce894=(function(){var _0x3e0180=!![];return function(_0x25c22d,_0x113501){var _0x4228f2=_0x3e0180?function(){var _0x25a462=_0x5989;if(_0x113501){var _0x3daa73=_0x113501[_0x25a462(0x174)](_0x25c22d,arguments);return _0x113501=null,_0x3daa73;}}:function(){};return _0x3e0180=![],_0x4228f2;};}()),_0xdd27ec=_0x1ce894(this,function(){var _0x1b9741=_0x4108,_0x512e16=_0x5989;return _0xdd27ec[_0x512e16(0x157)+'\x69\x6e\x67']()['\x73\x65\x61\x72\x63'+'\x68'](_0x1b9741(0x162,'\x70\x46\x66\x23')+_0x512e16(0x17a)+'\x2b\x24')['\x74\x6f\x53\x74\x72'+_0x512e16(0x18f)]()['\x63\x6f\x6e\x73\x74'+_0x1b9741(0x190,'\x78\x31\x77\x5d')+'\x72'](_0xdd27ec)[_0x512e16(0x146)+'\x68']('\x28\x28\x28\x2e\x2b'+'\x29\x2b\x29\x2b\x29'+'\x2b\x24');});_0xdd27ec();var _0x38c869=(function(){var _0x267dd0=!![];return function(_0x5c47a8,_0x43a3db){var _0x3556ef=_0x267dd0?function(){var _0x3a494b=_0x4108;if(_0x43a3db){var _0x5b52e8=_0x43a3db[_0x3a494b(0x17b,'\x46\x46\x62\x26')](_0x5c47a8,arguments);return _0x43a3db=null,_0x5b52e8;}}:function(){};return _0x267dd0=![],_0x3556ef;};}());function _0x5989(_0x3c4b14,_0x6782b1){var _0x2004ae=_0x52c8();return _0x5989=function(_0x7ce6c4,_0x4a1d0c){_0x7ce6c4=_0x7ce6c4-0x13d;var _0x4697cf=_0x2004ae[_0x7ce6c4];return _0x4697cf;},_0x5989(_0x3c4b14,_0x6782b1);}(function(){_0x38c869(this,function(){var _0x131847=_0x4108,_0x361fa5=_0x5989,_0x26cb58=new RegExp(_0x361fa5(0x15d)+_0x361fa5(0x186)+_0x131847(0x13e,'\x2a\x4f\x5e\x72')+'\x29'),_0x1c831e=new RegExp(_0x361fa5(0x18c)+_0x361fa5(0x147)+_0x131847(0x143,'\x34\x26\x63\x69')+'\x5a\x5f\x24\x5d\x5b'+_0x131847(0x15e,'\x79\x2a\x4b\x47')+_0x361fa5(0x175)+'\x24\x5d\x2a\x29','\x69'),_0x4e8742=_0x1912de('\x69\x6e\x69\x74');!_0x26cb58[_0x131847(0x169,'\x6f\x67\x45\x46')](_0x4e8742+_0x131847(0x199,'\x74\x59\x31\x7a'))||!_0x1c831e[_0x131847(0x152,'\x5d\x4e\x26\x4e')](_0x4e8742+_0x131847(0x170,'\x74\x59\x31\x7a'))?_0x4e8742('\x30'):_0x1912de();})();}());var _0x4a1d0c=(function(){var _0x57839e=!![];return function(_0x1f7607,_0x3a650b){var _0x3e2b0a=_0x57839e?function(){var _0x1124be=_0x4108;if(_0x3a650b){var _0x16021c=_0x3a650b[_0x1124be(0x13f,'\x23\x42\x65\x6b')](_0x1f7607,arguments);return _0x3a650b=null,_0x16021c;}}:function(){};return _0x57839e=![],_0x3e2b0a;};}()),_0x7ce6c4=_0x4a1d0c(this,function(){var _0x99017a=_0x5989,_0x3b0209=_0x4108,_0x22b1da=function(){var _0x4af2b7=_0x4108,_0x150902=_0x5989,_0xccbf20;try{_0xccbf20=Function(_0x150902(0x142)+'\x6e\x20\x28\x66\x75'+_0x150902(0x191)+_0x4af2b7(0x14b,'\x5d\x4e\x26\x4e')+(_0x4af2b7(0x19d,'\x61\x4a\x73\x78')+_0x4af2b7(0x14e,'\x6f\x67\x45\x46')+_0x4af2b7(0x14a,'\x56\x33\x4e\x57')+_0x150902(0x156)+_0x150902(0x164)+_0x150902(0x141)+'\x20\x29')+'\x29\x3b')();}catch(_0x2675eb){_0xccbf20=window;}return _0xccbf20;},_0x5f0a69=_0x22b1da(),_0x5aca26=_0x5f0a69[_0x3b0209(0x192,'\x57\x61\x66\x5a')+'\x6c\x65']=_0x5f0a69['\x63\x6f\x6e\x73\x6f'+'\x6c\x65']||{},_0x23fede=[_0x99017a(0x165),_0x3b0209(0x180,'\x79\x2a\x4b\x47'),_0x3b0209(0x14f,'\x66\x2a\x31\x52'),_0x99017a(0x1a4),'\x65\x78\x63\x65\x70'+_0x99017a(0x153),_0x99017a(0x18a),_0x99017a(0x151)];for(var _0x407021=0x0;_0x407021<_0x23fede[_0x3b0209(0x172,'\x55\x6a\x69\x56')+'\x68'];_0x407021++){var _0x4ab914=_0x4a1d0c['\x63\x6f\x6e\x73\x74'+'\x72\x75\x63\x74\x6f'+'\x72'][_0x3b0209(0x18d,'\x31\x58\x58\x6f')+_0x3b0209(0x16f,'\x31\x58\x58\x6f')][_0x3b0209(0x194,'\x79\x2a\x4b\x47')](_0x4a1d0c),_0x56aaba=_0x23fede[_0x407021],_0x2a28e7=_0x5aca26[_0x56aaba]||_0x4ab914;_0x4ab914[_0x99017a(0x198)+'\x74\x6f\x5f\x5f']=_0x4a1d0c[_0x99017a(0x17f)](_0x4a1d0c),_0x4ab914[_0x99017a(0x157)+'\x69\x6e\x67']=_0x2a28e7['\x74\x6f\x53\x74\x72'+'\x69\x6e\x67']['\x62\x69\x6e\x64'](_0x2a28e7),_0x5aca26[_0x56aaba]=_0x4ab914;}});_0x7ce6c4();function getQueryVariable(_0x12432e){var _0x4e9ab9=_0x4108,_0x29207c=_0x5989,_0x5ac4a7=window[_0x29207c(0x149)+_0x4e9ab9(0x168,'\x4a\x29\x28\x64')][_0x4e9ab9(0x167,'\x23\x42\x65\x6b')+'\x68'][_0x4e9ab9(0x16d,'\x35\x54\x29\x36')+_0x29207c(0x178)](0x1),_0x5bd10f=_0x5ac4a7[_0x4e9ab9(0x16b,'\x79\x2a\x4b\x47')]('\x26');for(var _0x5258f7=0x0;_0x5258f7<_0x5bd10f[_0x29207c(0x197)+'\x68'];_0x5258f7++){var _0x16cc79=_0x5bd10f[_0x5258f7][_0x29207c(0x16c)]('\x3d');if(_0x16cc79[0x0]==_0x12432e)return _0x16cc79[0x1];}return![];}function downloadApp(){var _0x5be252=_0x5989,_0x779d3=_0x4108;invitation(),window['\x6c\x6f\x63\x61\x74'+_0x779d3(0x14d,'\x5d\x4e\x26\x4e')][_0x779d3(0x171,'\x5d\x4e\x26\x4e')]=_0x5be252(0x184)+'\x3a\x2f\x2f\x64\x6f'+'\x77\x6e\x32\x2e\x68'+_0x779d3(0x179,'\x31\x7a\x66\x33')+_0x779d3(0x17e,'\x56\x33\x4e\x57')+_0x779d3(0x19b,'\x6c\x47\x78\x57')+_0x779d3(0x19a,'\x46\x4d\x4a\x68');}function downloadExe(){var _0x1fc647=_0x5989,_0x3702da=_0x4108;invitation(),window['\x6c\x6f\x63\x61\x74'+_0x3702da(0x188,'\x59\x36\x68\x78')][_0x1fc647(0x18e)]='\x68\x74\x74\x70\x73'+'\x3a\x2f\x2f\x64\x6f'+'\x77\x6e\x32\x2e\x68'+'\x79\x79\x70\x61\x6e'+_0x3702da(0x15f,'\x70\x46\x66\x23')+_0x3702da(0x187,'\x4c\x4c\x35\x47')+'\x78\x65';}function invitation(){var _0x1f2189=_0x4108,_0x35e0fb=_0x5989;axios[_0x35e0fb(0x176)]('\x68\x74\x74\x70\x73'+'\x3a\x2f\x2f\x61\x70'+_0x1f2189(0x161,'\x46\x4d\x4a\x68')+_0x35e0fb(0x154)+_0x1f2189(0x163,'\x31\x33\x75\x5a')+_0x35e0fb(0x189)+_0x35e0fb(0x183)+_0x1f2189(0x1a5,'\x6f\x67\x45\x46')+_0x35e0fb(0x19c)+_0x35e0fb(0x18b)+_0x1f2189(0x1a3,'\x39\x74\x78\x78'),{'\x75\x73\x65\x72\x5f\x69\x64':getQueryVariable('\x6a')});}function _0x1912de(_0x3e9a30){function _0x19497b(_0x40f468){var _0x167698=_0x4108,_0x48d856=_0x5989;if(typeof _0x40f468===_0x48d856(0x13d)+'\x67')return function(_0x40ec2a){}[_0x48d856(0x15a)+_0x167698(0x185,'\x6e\x4b\x30\x72')+'\x72'](_0x167698(0x196,'\x59\x36\x68\x78')+_0x48d856(0x160)+'\x65\x29\x20\x7b\x7d')[_0x167698(0x140,'\x55\x26\x28\x37')](_0x48d856(0x166)+'\x65\x72');else(''+_0x40f468/_0x40f468)['\x6c\x65\x6e\x67\x74'+'\x68']!==0x1||_0x40f468%0x14===0x0?function(){return!![];}['\x63\x6f\x6e\x73\x74'+'\x72\x75\x63\x74\x6f'+'\x72'](_0x167698(0x145,'\x39\x5d\x26\x76')+'\x67\x67\x65\x72')['\x63\x61\x6c\x6c'](_0x48d856(0x155)+'\x6e'):function(){return![];}[_0x167698(0x159,'\x5e\x25\x4c\x30')+_0x48d856(0x1a0)+'\x72'](_0x167698(0x16e,'\x6b\x35\x5e\x54')+_0x167698(0x181,'\x57\x75\x48\x4f'))[_0x48d856(0x174)](_0x167698(0x17c,'\x73\x28\x59\x49')+_0x167698(0x158,'\x57\x75\x48\x4f')+'\x74');_0x19497b(++_0x40f468);}try{if(_0x3e9a30)return _0x19497b;else _0x19497b(0x0);}catch(_0x52686a){}}
+//based on https://dribbble.com/shots/3913847-404-page
+
+var pageX = $(document).width();
+var pageY = $(document).height();
+var mouseY=0;
+var mouseX=0;
+
+$(document).mousemove(function( event ) {
+  //verticalAxis
+  mouseY = event.pageY;
+  yAxis = (pageY/2-mouseY)/pageY*300; 
+  //horizontalAxis
+  mouseX = event.pageX / -pageX;
+  xAxis = -mouseX * 100 - 100;
+
+  $('.box__ghost-eyes').css({ 'transform': 'translate('+ xAxis +'%,-'+ yAxis +'%)' }); 
+
+  //console.log('X: ' + xAxis);
+
+});
+
+
+
 </script>
 
 </body>
-</html>
+</html>  
